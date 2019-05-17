@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"          
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml"> 
+    <ui:define name="content">
+        <h:form>
+            
+        <p:panelGrid  columns="2" >
+            
+            <p:outputLabel value="Sistema"/>
+            <p:inputNumber value="#{mb.cadastronovo.sistema}"/>
+            <p:outputLabel value="Forma de acesso"/>
+            <p:inputNumber value="#{mb.cadastronovo.formadeacesso}"/>
+            <p:outputLabel value="Mensagem de ERRO"/>
+            <p:inputTextarea value="#{mb.cadastronovo.erro}"/>
+        </p:panelGrid>
+        <h:panelGrid columns="5">
+            <p:commandButton value="Salvar" action="#{mb.salvar()}" />
+            <p:commandButton value="Alterar" action="#{mb.alterar()}"/>
+            <p:commandButton value="Excluir" action="#{mb.excluir()}"/>
+            <p:commandButton value="Pesquisar" action="#{mb.pesquisar()}"/>
+            <p:commandButton value="Limpar" action="#{mb.limparTela()}"/>
+        </h:panelGrid>
+                <p:dataTable value=""
+                    emptyMessage="Nenhhum conhecimento cadastrado"
+                    paginator="true" rows="10" paginatorPosition="bottom"
+                    var="p">
+                    <p:column headerText="Sistema">
+                        <p:outputLabel value=""/>
+                    </p:column>
+                    <p:column headerText="Forma de acesso">
+                        <p:outputLabel value=""/>
+                    </p:column>
+                    <p:column headerText="Erro">
+                        <p:outputLabel value=""/>
+                    </p:column>                    
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:decorate>
